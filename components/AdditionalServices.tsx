@@ -9,22 +9,35 @@ const addons = [
 
 export default function AdditionalServices() {
   return (
-    <section className="py-16 px-6 bg-[#0c0f17]">
+    <section className="py-16 md:py-24 px-6 bg-[#0c0f17] overflow-hidden">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-black mb-4">Additional <span className="text-primary">Services</span></h2>
-        <p className="text-gray-400 mb-12">Customize your detailing experience with our specialized add-ons</p>
+        
+        {/* Adjusted spacing and text sizes for mobile */}
+        <h2 className="text-3xl md:text-4xl font-black mb-2 md:mb-4">
+          Additional <span className="text-primary">Services</span>
+        </h2>
+        <p className="text-xs md:text-base text-gray-400 mb-8 md:mb-12">
+          Customize your detailing experience with our specialized add-ons
+        </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Mobile: Horizontal Swipe | Desktop: Grid */}
+        <div className="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory pb-4 -mx-6 px-6 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {addons.map((item) => (
-            <div key={item.title} className="bg-[#11141d] p-8 rounded-2xl border border-white/5 flex flex-col items-center text-center hover:border-primary/30 transition-all">
-              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                <item.icon className="text-primary w-6 h-6" />
+            <div 
+              key={item.title} 
+              // Added width constraints, shrink-0, and snap-center for mobile swipe
+              className="w-[75vw] md:w-auto shrink-0 snap-center bg-[#11141d] p-6 md:p-8 rounded-2xl border border-white/5 flex flex-col items-center text-center hover:border-primary/30 transition-all"
+            >
+              {/* Scaled down icon sizes slightly for mobile */}
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 md:mb-6">
+                <item.icon className="text-primary w-5 h-5 md:w-6 md:h-6" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-              <p className="text-sm text-gray-400">{item.desc}</p>
+              <h3 className="text-base md:text-lg font-bold text-white mb-2">{item.title}</h3>
+              <p className="text-xs md:text-sm text-gray-400">{item.desc}</p>
             </div>
           ))}
         </div>
+        
       </div>
     </section>
   );
