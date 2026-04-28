@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* 1. Define the High-End Color Palette (Tailwind v4) */
+@theme {
+  /* Branding Colors */
+  --color-background: #050505;
+  --color-foreground: #ededed;
+  --color-primary: #3b82f6;      /* Electric Blue (MFP Brand) */
+  --color-primary-dark: #1d4ed8;
+  --color-accent: #fbbf24;       /* Shine Gold (VIP & Best Value) */
+  --color-surface: #111111;      /* Card/Section backgrounds */
+  
+  /* Fonts */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* 2. Base Resets & Global Styles */
+@layer base {
   :root {
-    --background: #0a0a0a;
+    --background: #050505;
     --foreground: #ededed;
+  }
+
+  /* Force smooth scrolling for anchor links (Services, Gallery, Contact) */
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    @apply antialiased selection:bg-primary selection:text-white;
+  }
+
+  /* Custom Scrollbar for the Luxury Aesthetic */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 10px;
+    border: 2px solid #0a0a0a;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* 3. Utility Classes for the "Ultimate Shine" Effect */
+@layer utilities {
+  /* For the "Glass" headers and floating cards */
+  .bg-glass {
+    @apply backdrop-blur-md bg-black/40 border border-white/10;
+  }
+
+  /* Premium gradient text effect */
+  .text-glass {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40;
+  }
+
+  /* Gold gradient text for VIP/Ceramic sections */
+  .text-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-accent to-accent/60;
+  }
+
+  /* Interactive card hover for detailing tiers */
+  .shine-hover {
+    @apply transition-all duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] hover:border-primary/30;
+  }
+
+  /* Specific hover for the Gold/VIP tier */
+  .gold-hover {
+    @apply transition-all duration-300 hover:shadow-[0_0_30px_rgba(251,191,36,0.15)] hover:border-accent/50;
+  }
 }
