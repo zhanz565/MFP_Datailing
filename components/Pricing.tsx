@@ -1,4 +1,4 @@
-import { Sparkles, Check, Car, Truck } from 'lucide-react'; // Added Car and Truck icons!
+import { Sparkles, Check, Car, Truck } from 'lucide-react';
 
 const packages = [
   { 
@@ -13,12 +13,6 @@ const packages = [
     prices: { sedan: "160", suv: "190", van: "210" },
     features: ["Exterior hand wash & dry", "Wheels & tires deep clean", "Full interior dusting & vacuum", "Dashboard, console & panels wiped down", "Window cleaning (inside & out)"], 
     highlighted: true 
-  },
-  { 
-    name: "PREMIUM VIP", 
-    sub: "The Showroom Finish", 
-    prices: { sedan: "300", suv: "350", van: "400" },
-    features: ["Everything in In & Out Detailing", "Paint correction / Polish", "Leather cleaning & conditioning", "Carpet & upholstery shampoo", "Odor removal & interior refresh"] 
   }
 ];
 
@@ -30,8 +24,8 @@ export default function Pricing() {
         <h2 className="text-4xl md:text-5xl font-black mb-2 md:mb-4 tracking-tight">Detailing <span className="text-gold">Packages</span></h2>
         <p className="text-xs md:text-base text-gray-400 mb-8 md:mb-16">Premium auto detailing services tailored to your vehicle's size</p>
         
-        {/* Mobile: Horizontal Swipe | Desktop: Grid */}
-        <div className="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory pb-4 -mx-6 px-6 md:mx-0 md:px-0 md:grid lg:grid-cols-3 gap-4 md:gap-8">
+        {/* Mobile: Horizontal Swipe | Desktop: Centered 2-Column Grid */}
+        <div className="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory pb-4 -mx-6 px-6 md:mx-0 md:px-0 md:grid lg:grid-cols-2 max-w-4xl mx-auto gap-4 md:gap-8">
           {packages.map((pkg) => (
             <div key={pkg.name} className={`w-[85vw] md:w-auto shrink-0 snap-center relative p-6 md:p-8 rounded-2xl border flex flex-col ${pkg.highlighted ? 'border-accent bg-[#11141d] shadow-[0_0_30px_rgba(251,191,36,0.1)]' : 'border-white/5 bg-[#0c0f17]'}`}>
               
@@ -48,7 +42,7 @@ export default function Pricing() {
               <h3 className="text-lg md:text-xl font-black tracking-widest text-white">{pkg.name}</h3>
               <p className="text-[10px] md:text-xs text-gray-500 mb-6">{pkg.sub}</p>
               
-              {/* NEW TIERED PRICING BOX */}
+              {/* TIERED PRICING BOX */}
               <div className="bg-black/30 rounded-xl p-4 mb-8 border border-white/5">
                 {/* Sedan/Coupe */}
                 <div className="flex justify-between items-center mb-3 pb-3 border-b border-white/5">
