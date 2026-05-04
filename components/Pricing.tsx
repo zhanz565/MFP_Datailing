@@ -1,6 +1,14 @@
 import { Sparkles, Check, Car, Truck } from 'lucide-react';
 
+// We reordered this list so IN & OUT is first!
 const packages = [
+  { 
+    name: "IN & OUT DETAILING", 
+    sub: "Complete Transformation", 
+    prices: { sedan: "160", suv: "190", van: "210" },
+    features: ["Exterior hand wash & dry", "Wheels & tires deep clean", "Full interior dusting & vacuum", "Dashboard, console & panels wiped down", "Window cleaning (inside & out)"], 
+    highlighted: true 
+  },
   { 
     name: "EXTERIOR ONLY", 
     sub: "Professional Exterior Wash", 
@@ -12,13 +20,6 @@ const packages = [
     sub: "Deep Interior Cleaning", 
     prices: { sedan: "50", suv: "60", van: "70" },
     features: ["Full interior dusting & vacuum", "Dashboard, console & panels wiped down", "Leather cleaning & conditioning", "Window & mirror cleaning (inside)"] 
-  },
-  { 
-    name: "IN & OUT DETAILING", 
-    sub: "Complete Transformation", 
-    prices: { sedan: "160", suv: "190", van: "210" },
-    features: ["Exterior hand wash & dry", "Wheels & tires deep clean", "Full interior dusting & vacuum", "Dashboard, console & panels wiped down", "Window cleaning (inside & out)"], 
-    highlighted: true 
   }
 ];
 
@@ -30,10 +31,10 @@ export default function Pricing() {
         <h2 className="text-4xl md:text-5xl font-black mb-2 md:mb-4 tracking-tight">Detailing <span className="text-gold">Packages</span></h2>
         <p className="text-xs md:text-base text-gray-400 mb-8 md:mb-16">Premium auto detailing services tailored to your vehicle's size</p>
         
-        {/* Mobile: Vertical Stack | Desktop: 3-Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+        {/* Restored Mobile: Horizontal Swipe | Desktop: 3-Column Grid */}
+        <div className="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory pb-4 -mx-6 px-6 md:mx-0 md:px-0 md:grid lg:grid-cols-3 gap-4 md:gap-8">
           {packages.map((pkg) => (
-            <div key={pkg.name} className={`relative p-6 md:p-8 rounded-2xl border flex flex-col ${pkg.highlighted ? 'border-accent bg-[#11141d] shadow-[0_0_30px_rgba(251,191,36,0.1)]' : 'border-white/5 bg-[#0c0f17]'}`}>
+            <div key={pkg.name} className={`w-[85vw] md:w-auto shrink-0 snap-center relative p-6 md:p-8 rounded-2xl border flex flex-col ${pkg.highlighted ? 'border-accent bg-[#11141d] shadow-[0_0_30px_rgba(251,191,36,0.1)]' : 'border-white/5 bg-[#0c0f17]'}`}>
               
               {pkg.highlighted && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-black font-black px-3 py-0.5 rounded-full text-[10px] md:text-xs flex items-center gap-1 uppercase tracking-tighter">
