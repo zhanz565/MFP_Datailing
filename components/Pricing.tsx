@@ -16,9 +16,9 @@ const packages = [
     features: ["Exterior hand wash & dry", "Wheels & tires deep clean", "Tire shine application", "Window & mirror cleaning (outside)"] 
   },
   { 
-    name: "INDOOR ONLY", 
+    name: "INTERIOR ONLY", 
     sub: "Deep Interior Cleaning", 
-    prices: { sedan: "50", suv: "60", van: "70" },
+    prices: { sedan: "120", suv: "140", van: "150" },
     features: ["Full interior dusting & vacuum", "Dashboard, console & panels wiped down", "Leather cleaning & conditioning", "Window & mirror cleaning (inside)"] 
   }
 ];
