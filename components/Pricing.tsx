@@ -5,7 +5,7 @@ const packages = [
   { 
     name: "IN & OUT DETAILING", 
     sub: "Complete Transformation", 
-    prices: { sedan: "160", suv: "190", van: "210" },
+    prices: { sedan: "130", suv: "160", van: "190" },
     features: ["Exterior hand wash & dry", "Wheels & tires deep clean", "Full interior dusting & vacuum", "Dashboard, console & panels wiped down", "Window cleaning (inside & out)"], 
     highlighted: true 
   },
@@ -18,7 +18,7 @@ const packages = [
   { 
     name: "INTERIOR ONLY", 
     sub: "Deep Interior Cleaning", 
-    prices: { sedan: "120", suv: "140", van: "150" },
+    prices: { sedan: "90", suv: "110", van: "130" },
     features: ["Full interior dusting & vacuum", "Dashboard, console & panels wiped down", "Leather cleaning & conditioning", "Window & mirror cleaning (inside)"] 
   }
 ];
