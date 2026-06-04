@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Services from '@/components/Services';
 import OurWork from '@/components/OurWork';
@@ -7,9 +8,46 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 
+// 1. Next.js Metadata API for On-Page SEO
+export const metadata: Metadata = {
+  title: 'MFP Detailing | Premium Auto Detailing in Burlington',
+  description: 'Professional auto detailing, ceramic coating, and paint correction services. Restore your vehicle\'s beauty with absolute precision at our premier detailing studio.',
+  openGraph: {
+    title: 'MFP Detailing | Premium Auto Detailing',
+    description: 'Professional auto detailing, ceramic coating, and paint correction services.',
+    type: 'website',
+  }
+};
+
 export default function Home() {
+  // 2. Schema Markup (JSON-LD) for Google Rich Results
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'AutoWash', // Use AutoWash for detailing, or AutoRepair if mechanical is the focus
+    name: 'MFP Detailing',
+   image: 'https://www.mfpdetailing.ca/hero-car.jpg', // IMPORTANT: Replace with your actual live domain
+    url: 'https://www.mfpdetailing.ca', // IMPORTANT: Replace with your actual live domain
+    telephone: '+1-343-368-5033', // IMPORTANT: Replace
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '1161 Pettit Rd', // IMPORTANT: Replace
+      addressLocality: 'Burlington', // Change to Hamilton if the physical shop is there
+      addressRegion: 'ON',
+      postalCode: 'L7P 2K3', // IMPORTANT: Replace
+      addressCountry: 'CA'
+    },
+    priceRange: '$$'
+  };
+
   return (
     <main className="relative min-h-screen bg-background text-foreground">
+      
+      {/* 3. Injecting the Schema into the DOM */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <Navbar />
 
       {/* Main Hero Page (Mobile Responsive) */}

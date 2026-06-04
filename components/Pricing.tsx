@@ -5,20 +5,20 @@ const packages = [
   { 
     name: "IN & OUT DETAILING", 
     sub: "Complete Transformation", 
-    prices: { sedan: "130", suv: "160", van: "190" },
+    prices: { sedan: "100", suv: "130", van: "160" },
     features: ["Exterior hand wash & dry", "Wheels & tires deep clean", "Full interior dusting & vacuum", "Dashboard, console & panels wiped down", "Window cleaning (inside & out)"], 
     highlighted: true 
   },
   { 
     name: "EXTERIOR ONLY", 
     sub: "Professional Exterior Wash", 
-    prices: { sedan: "40", suv: "50", van: "60" },
+    prices: { sedan: "30", suv: "40", van: "50" },
     features: ["Exterior hand wash & dry", "Wheels & tires deep clean", "Tire shine application", "Window & mirror cleaning (outside)"] 
   },
   { 
     name: "INTERIOR ONLY", 
     sub: "Deep Interior Cleaning", 
-    prices: { sedan: "90", suv: "110", van: "130" },
+    prices: { sedan: "70", suv: "90", van: "100" },
     features: ["Full interior dusting & vacuum", "Dashboard, console & panels wiped down", "Leather cleaning & conditioning", "Window & mirror cleaning (inside)"] 
   }
 ];
